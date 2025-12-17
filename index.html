@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CẤU HÌNH GIAO DIỆN (MODERN UI) --- */
+        /* --- CẤU HÌNH GIAO DIỆN --- */
         :root {
-            --primary-dark: #0f172a; /* Xanh đen sâu */
-            --gold-gradient: linear-gradient(135deg, #fce38a 0%, #d4af37 100%); /* Màu vàng kim loại */
+            --primary-dark: #0f172a; 
+            --gold-gradient: linear-gradient(135deg, #fce38a 0%, #d4af37 100%);
             --glass-bg: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-light: #f8fafc;
@@ -28,10 +28,9 @@
             scroll-behavior: smooth;
         }
 
-        /* --- PHẦN HERO: ĐẬP VÀO MẮT --- */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
-            /* Lớp phủ tối màu hiện đại + Ảnh nền chất lượng cao */
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%), 
                         url('pgd3.jpg');
             background-size: cover;
@@ -40,25 +39,17 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* Căn trái thay vì giữa */
-            padding: 0 10%; /* Khoảng cách lề trái */
+            align-items: flex-start;
+            padding: 0 10%;
             position: relative;
         }
 
-        /* Hiệu ứng hạt bụi trang trí (Optional) */
-        .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15), transparent 60%);
-            pointer-events: none;
-        }
-
         .hero h1 {
-            font-size: 4.5rem; /* Chữ siêu to */
+            font-size: 4.5rem;
             font-weight: 900;
             line-height: 1.1;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
-            /* Hiệu ứng chữ mạ vàng */
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -66,20 +57,15 @@
         }
 
         .hero p { 
-            font-size: 1.25rem; 
-            color: var(--text-gray); 
-            margin-bottom: 3rem; 
-            max-width: 600px;
-            font-weight: 300;
-            border-left: 4px solid #d4af37;
-            padding-left: 20px;
+            font-size: 1.25rem; color: var(--text-gray); margin-bottom: 3rem; 
+            max-width: 600px; font-weight: 300; border-left: 4px solid #d4af37; padding-left: 20px;
         }
 
-        /* Đồng hồ đếm ngược phong cách Kính (Glassmorphism) */
+        /* Đồng hồ đếm ngược */
         .countdown-box { display: flex; gap: 20px; }
         .time-unit {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px); /* Mờ kính */
+            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 20px 30px;
             border: 1px solid var(--glass-border);
@@ -89,167 +75,86 @@
             min-width: 100px;
             transition: transform 0.3s ease;
         }
-        .time-unit:hover { transform: translateY(-5px); border-color: #d4af37; }
-        
-        .time-unit span { 
-            display: block; font-size: 2.5rem; font-weight: 700; color: #fff; 
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
-        }
-        .time-unit label { 
-            font-size: 0.85rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin-top: 5px; display: block;
-        }
+        .time-unit span { display: block; font-size: 2.5rem; font-weight: 700; color: #fff; text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5); }
+        .time-unit label { font-size: 0.85rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin-top: 5px; display: block; }
 
         /* --- CONTENT SECTION --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
 
         .section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 150px;
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); /* Easing mượt mà */
-            gap: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 150px; opacity: 0; transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); gap: 60px;
         }
-
         .section.show { opacity: 1; transform: translateY(0); }
         .section:nth-child(even) { flex-direction: row-reverse; }
 
         .content-box { flex: 1; }
+        .content-box h2 { font-size: 2.5rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
+        .content-box .subtitle { font-size: 1.1rem; color: #d4af37; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; display: block; }
+        .content-box p { font-size: 1.1rem; line-height: 1.8; color: #475569; margin-bottom: 20px; text-align: justify; }
 
-        .content-box h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-        
-        .content-box .subtitle {
-            font-size: 1.1rem; color: #d4af37; font-weight: 600;
-            margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px;
-            display: block;
-        }
-
-        .content-box p { 
-            font-size: 1.1rem; line-height: 1.8; color: #475569; margin-bottom: 20px; 
-            text-align: justify;
-        }
-
-        /* --- MEDIA BOX NÂNG CẤP --- */
+        /* --- MEDIA BOX --- */
         .media-box {
-            flex: 1.2; /* Ảnh to hơn chữ một chút */
-            height: 400px;
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
+            flex: 1.2; height: 400px; position: relative;
+            border-radius: 24px; overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            cursor: pointer;
-            background: #000;
+            cursor: pointer; background: #000;
+            /* Thêm hiệu ứng click nhẹ để người dùng biết đã bấm */
+            transition: transform 0.1s; 
         }
+        .media-box:active { transform: scale(0.98); }
 
         .media-box video {
-            width: 100%; height: 100%; object-fit: cover;
-            position: absolute; top: 0; left: 0; z-index: 1;
-            opacity: 0.6; /* Mặc định hơi tối để hiện nút Play */
+            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
+            opacity: 0; /* Video ẩn mặc định */
             transition: opacity 0.5s;
         }
         
         .media-box img {
-            width: 100%; height: 100%; object-fit: cover;
-            position: absolute; top: 0; left: 0; z-index: 2;
+            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;
+            opacity: 1; /* Ảnh hiện mặc định */
             transition: opacity 0.6s ease;
         }
 
-        /* Nút Play giả lập */
         .play-btn {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px; height: 70px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            z-index: 3;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px); border-radius: 50%; z-index: 3;
             display: flex; justify-content: center; align-items: center;
-            border: 2px solid rgba(255,255,255,0.8);
-            pointer-events: none; /* Không chặn click */
+            border: 2px solid rgba(255,255,255,0.8); pointer-events: none;
             transition: transform 0.3s, opacity 0.3s;
         }
         .play-btn::after {
-            content: '';
-            width: 0; height: 0;
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            margin-left: 5px;
+            content: ''; width: 0; height: 0; border-left: 20px solid white;
+            border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px;
         }
 
-        /* Hover Effect */
-        .media-box:hover .play-btn { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
-        .media-box:hover img, .media-box.playing img { opacity: 0; }
-        .media-box:hover video, .media-box.playing video { opacity: 1; }
+        /* Khi class .playing được thêm vào (JS xử lý) */
+        .media-box.playing img { opacity: 0; pointer-events: none; }
+        .media-box.playing video { opacity: 1; }
+        .media-box.playing .play-btn { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
 
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--primary-dark);
-            color: #94a3b8;
-            text-align: center;
-            padding: 80px 20px;
-            border-top: 4px solid #d4af37;
-        }
+        footer { background-color: var(--primary-dark); color: #94a3b8; text-align: center; padding: 80px 20px; border-top: 4px solid #d4af37; }
         footer h3 { color: #fff; font-size: 2rem; margin-bottom: 10px; font-weight: 700; }
         
-        /* Mobile */
-        /* --- MOBILE FIX (Dán đè lên đoạn @media cũ hoặc thêm vào cuối file style) --- */
-   /* --- CODE FIX TOÀN DIỆN CHO MOBILE (Dán vào cuối cùng phần style) --- */
-    @media (max-width: 768px) {
-        
-        /* 1. Fix lỗi ảnh nền to đầu trang (Hero) */
-        .hero { 
-            padding: 0 20px; 
-            align-items: center; 
-            text-align: center;
-            background-attachment: scroll !important; 
-            background-position: center center !important;
-        }
-        .hero h1 { font-size: 2.8rem; }
-        .hero p { margin: 0 auto 2rem auto; border: none; padding: 0; }
-        
-        /* 2. Sắp xếp lại đồng hồ */
-        .countdown-box { flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .time-unit { min-width: 70px; padding: 15px; }
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero { padding: 0 20px; align-items: center; text-align: center; background-attachment: scroll !important; background-position: center center !important; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { margin: 0 auto 2rem auto; border: none; padding: 0; }
+            
+            .countdown-box { flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 10px; }
+            .time-unit { min-width: 70px; padding: 15px 5px; flex: 1 1 40%; }
+            .time-unit span { font-size: 2rem; }
 
-        /* 3. QUAN TRỌNG NHẤT: Bắt buộc hiện nội dung ngay (Chống tàng hình) */
-        .section {
-            flex-direction: column;
-            gap: 40px;
-            opacity: 1 !important;     /* Dòng này bắt nó phải hiện ra */
-            transform: none !important; /* Dòng này tắt hiệu ứng bay bay */
+            .section { flex-direction: column; gap: 40px; opacity: 1 !important; transform: none !important; margin-bottom: 80px; }
+            .content-box h2 { font-size: 2rem; text-align: center; }
+            .content-box .subtitle { text-align: center; }
+            
+            .media-box { width: 100%; height: 280px; }
+            .play-btn { width: 50px !important; height: 50px !important; }
         }
-        
-        /* 4. QUAN TRỌNG NHÌ: Fix lỗi ảnh/video bị đen thui */
-        .media-box { 
-            width: 100%; 
-            height: 280px; 
-        }
-        
-        /* Luôn hiển thị ảnh bìa, bất chấp mọi loại cảm ứng */
-        .media-box img { 
-            opacity: 1 !important; 
-        }
-        
-        /* Chỉ ẩn ảnh khi video thực sự chạy (khi Javascript thêm class playing) */
-        .media-box.playing img { 
-            opacity: 0 !important; 
-        }
-
-        /* Nút Play luôn hiện rõ */
-        .play-btn { 
-            opacity: 1 !important; 
-            transform: translate(-50%, -50%) scale(1) !important; 
-        }
-    }
     </style>
 </head>
 <body>
@@ -278,7 +183,7 @@
                 </p>
                 <p><em>"Không chỉ là công việc, đó là trách nhiệm giữ nhịp thở cho ngân sách tỉnh nhà."</em></p>
             </div>
-            <div class="media-box" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
+            <div class="media-box">
                 <video loop muted playsinline src="vid1.mp4"></video> 
                 <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Kho bạc">
                 <div class="play-btn"></div>
@@ -286,7 +191,7 @@
         </section>
 
         <section class="section">
-            <div class="media-box" style="height: 600px; flex: 0.8;" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
+            <div class="media-box" style="height: 600px; flex: 0.8;">
                 <video loop muted playsinline src="https://videos.pexels.com/video-files/3129671/3129671-sd_640_360_30fps.mp4"></video>
                 <img src="ban.jpg" alt="Làm việc tập trung" style="object-fit: contain; background: #0f172a;">
                 <div class="play-btn"></div>
@@ -300,7 +205,7 @@
                     Đằng sau sự nhiệt huyết là những cái đầu lạnh, đôi tay lật hồ sơ nhanh thoăn thoắt và những cú click chuột lia lịa. Nhưng sự chính xác vẫn được ưu tiên hàng đầu.
                 </p>
                 <p><em>"Sai một ly, đi một dặm. Tại Kho bạc, độ chính xác là mệnh lệnh."</em></p>
-		<p><em>"Toàn ngành toàn hệ thống không phải vì nhiệm vụ mà là vì công việc còn phải làm, xung phong làm việc tới khuya, Giáng sinh vẫn lung linh qua màn hình máy tính, dù cây thông chỉ là hình ảnh, nhưng nhiệt huyết của anh em là thật. Đã tối muộn, giờ này đáng lẽ đã cơm nước xong và chuẩn bị đi chơi Noel nhưng anh chị em KBNN vẫn bật điện sáng chưng cùng với sự hy sinh thầm lặng của những người thực hiện công tác Quyết toán cuối năm 2025 "</em></p>
+                <p><em>"Toàn ngành toàn hệ thống không phải vì nhiệm vụ mà là vì công việc còn phải làm, xung phong làm việc tới khuya, Giáng sinh vẫn lung linh qua màn hình máy tính, dù cây thông chỉ là hình ảnh, nhưng nhiệt huyết của anh em là thật. Đã tối muộn, giờ này đáng lẽ đã cơm nước xong và chuẩn bị đi chơi Noel nhưng anh chị em KBNN vẫn bật điện sáng chưng cùng với sự hy sinh thầm lặng của những người thực hiện công tác Quyết toán cuối năm 2025."</em></p>
             </div>
         </section>
 
@@ -313,7 +218,7 @@
                     Sự bình tĩnh, ngăn nắp và hỗ trợ lẫn nhau chính là chìa khóa để về đích an toàn.
                 </p>
                 <p><em>"Tất cả vì một cái Tết ấm no và dòng ngân sách thông suốt."</em></p>
-				<p3><em>click vào ảnh để thấy tấm chân tình tại KBNN</em></p3>
+                <p style="font-style: italic; color: #d4af37; font-size: 0.9rem; margin-top: 10px;">(Click vào ảnh để thấy tấm chân tình tại KBNN)</p>
             </div>
            
             <div class="media-box" onclick="toggleSrc(this)" style="cursor: pointer;">
@@ -347,8 +252,8 @@
             document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
         }, 1000);
 
-        // 2. SCROLL ANIMATION
-        const observer = new IntersectionObserver((entries) => {
+        // 2. SCROLL ANIMATION (Hiệu ứng hiện nội dung)
+        const contentObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
@@ -356,50 +261,40 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.section').forEach(el => observer.observe(el));
+        document.querySelectorAll('.section').forEach(el => contentObserver.observe(el));
 
-        // 3. MEDIA CONTROL (TỰ ĐỘNG CHƠI KHI HOVER)
-        function playVideo(el) {
-            const video = el.querySelector('video');
-            if(video) { // Kiểm tra có video không để tránh lỗi ở phần ảnh tĩnh
-                el.classList.add('playing');
-                video.play().catch(e => console.log("User interaction needed for autoplay"));
+        // 3. TAP TO PLAY (CHẠM ĐỂ CHƠI) - NEO'S NEW LOGIC
+        // Áp dụng cho các hộp có Video
+        document.querySelectorAll('.media-box').forEach(box => {
+            const video = box.querySelector('video');
+            
+            // Chỉ xử lý nếu box này có chứa video
+            if (video) {
+                box.addEventListener('click', function() {
+                    if (video.paused) {
+                        // Nếu đang dừng -> Chơi video & Ẩn ảnh
+                        video.play();
+                        box.classList.add('playing');
+                    } else {
+                        // Nếu đang chạy -> Dừng video & Hiện ảnh lại
+                        video.pause();
+                        box.classList.remove('playing');
+                    }
+                });
             }
-        }
+        });
 
-        function pauseVideo(el) {
-            const video = el.querySelector('video');
-            if(video) {
-                el.classList.remove('playing');
-                video.pause();
-            }
-        }
-
-        // 4. CHỨC NĂNG ĐỔI ẢNH (MỚI THÊM)
+        // 4. CHỨC NĂNG ĐỔI ẢNH (GIỮ NGUYÊN)
         function toggleSrc(element) {
             var img = element.querySelector('img');
             var currentSrc = img.getAttribute('src');
 
-            if (currentSrc === 'dong.jpg') {
-                img.src = 'KH.png'; // Lưu ý: Tên file chính xác như bạn cung cấp
+            if (currentSrc.includes('dong.jpg')) {
+                img.src = 'KH.png'; 
             } else {
                 img.src = 'dong.jpg';
             }
         }
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
