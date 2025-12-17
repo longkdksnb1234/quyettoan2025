@@ -210,6 +210,24 @@
             .section, .section:nth-child(even) { flex-direction: column; gap: 40px; }
             .media-box { width: 100%; height: 280px; }
         }
+
+
+/* Tìm đoạn này ở gần cuối style và cập nhật lại */
+@media (max-width: 768px) {
+    .hero { 
+        padding: 0 20px; 
+        align-items: center; 
+        text-align: center;
+        
+        /* THÊM DÒNG NÀY ĐỂ HIỆN ẢNH NỀN TRÊN ĐIỆN THOẠI */
+        background-attachment: scroll !important; 
+        background-position: center center !important;
+    }
+    
+    /* ... các code cũ giữ nguyên ... */
+}
+
+		
     </style>
 </head>
 <body>
@@ -350,6 +368,7 @@
 </body>
 
 </html>
+
 
 
 
