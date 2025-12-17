@@ -202,8 +202,10 @@
         
         /* Mobile */
         /* --- MOBILE FIX (Dán đè lên đoạn @media cũ hoặc thêm vào cuối file style) --- */
+   /* --- CODE FIX TOÀN DIỆN CHO MOBILE (Dán vào cuối cùng phần style) --- */
     @media (max-width: 768px) {
-        /* 1. Sửa lỗi Hero Banner (Ảnh nền trên cùng) */
+        
+        /* 1. Fix lỗi ảnh nền to đầu trang (Hero) */
         .hero { 
             padding: 0 20px; 
             align-items: center; 
@@ -214,66 +216,40 @@
         .hero h1 { font-size: 2.8rem; }
         .hero p { margin: 0 auto 2rem auto; border: none; padding: 0; }
         
-        /* 2. Sửa đồng hồ đếm ngược cho đỡ bị vỡ layout */
+        /* 2. Sắp xếp lại đồng hồ */
         .countdown-box { flex-wrap: wrap; justify-content: center; gap: 10px; }
         .time-unit { min-width: 70px; padding: 15px; }
 
-        /* 3. FIX QUAN TRỌNG: Hiện ngay nội dung, không chờ hiệu ứng cuộn */
-        .section { 
-            flex-direction: column; 
-            gap: 40px; 
-            opacity: 1 !important; /* Bắt buộc hiện ngay */
-            transform: translateY(0) !important; /* Không bay từ dưới lên nữa */
+        /* 3. QUAN TRỌNG NHẤT: Bắt buộc hiện nội dung ngay (Chống tàng hình) */
+        .section {
+            flex-direction: column;
+            gap: 40px;
+            opacity: 1 !important;     /* Dòng này bắt nó phải hiện ra */
+            transform: none !important; /* Dòng này tắt hiệu ứng bay bay */
         }
-        .section:nth-child(even) { flex-direction: column; }
         
-        /* 4. FIX ẢNH ĐEN: Cấm ẩn ảnh khi chạm (tap) */
-        .media-box { width: 100%; height: 280px; }
+        /* 4. QUAN TRỌNG NHÌ: Fix lỗi ảnh/video bị đen thui */
+        .media-box { 
+            width: 100%; 
+            height: 280px; 
+        }
         
-        /* Luôn hiện ảnh, dùng !important để đè mọi lệnh khác */
-        .media-box img { opacity: 1 !important; } 
+        /* Luôn hiển thị ảnh bìa, bất chấp mọi loại cảm ứng */
+        .media-box img { 
+            opacity: 1 !important; 
+        }
         
-        /* Chỉ ẩn ảnh khi class 'playing' được thêm vào bởi Javascript */
-        .media-box.playing img { opacity: 0 !important; }
+        /* Chỉ ẩn ảnh khi video thực sự chạy (khi Javascript thêm class playing) */
+        .media-box.playing img { 
+            opacity: 0 !important; 
+        }
 
-        /* Nút Play luôn hiện */
-        .play-btn { opacity: 1 !important; transform: translate(-50%, -50%) scale(1) !important; }
+        /* Nút Play luôn hiện rõ */
+        .play-btn { 
+            opacity: 1 !important; 
+            transform: translate(-50%, -50%) scale(1) !important; 
+        }
     }
-
-
-/* Tìm đoạn này ở gần cuối style và cập nhật lại */
-@media (max-width: 768px) {
-    .hero { 
-        padding: 0 20px; 
-        align-items: center; 
-        text-align: center;
-        
-        /* THÊM DÒNG NÀY ĐỂ HIỆN ẢNH NỀN TRÊN ĐIỆN THOẠI */
-        background-attachment: scroll !important; 
-        background-position: center center !important;
-    }
-    
-    /* ... các code cũ giữ nguyên ... */
-}
-
-	/* --- SỬA LỖI MẤT ẢNH TRÊN MOBILE (Dán vào cuối phần style) --- */
-@media (hover: none) and (pointer: coarse) {
-    /* Khi chạm vào trên mobile, KHÔNG ẩn ảnh ngay */
-    .media-box:hover img {
-        opacity: 1; 
-    }
-    
-    /* Chỉ ẩn ảnh khi video thực sự chạy (khi đã thêm class playing) */
-    .media-box.playing img {
-        opacity: 0;
-    }
-    
-    /* Đảm bảo nút play luôn hiện rõ để bấm */
-    .play-btn {
-        opacity: 1 !important;
-        transform: translate(-50%, -50%) scale(1) !important;
-    }
-}	
     </style>
 </head>
 <body>
@@ -414,6 +390,7 @@
 </body>
 
 </html>
+
 
 
 
