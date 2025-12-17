@@ -227,7 +227,24 @@
     /* ... các code cũ giữ nguyên ... */
 }
 
-		
+	/* --- SỬA LỖI MẤT ẢNH TRÊN MOBILE (Dán vào cuối phần style) --- */
+@media (hover: none) and (pointer: coarse) {
+    /* Khi chạm vào trên mobile, KHÔNG ẩn ảnh ngay */
+    .media-box:hover img {
+        opacity: 1; 
+    }
+    
+    /* Chỉ ẩn ảnh khi video thực sự chạy (khi đã thêm class playing) */
+    .media-box.playing img {
+        opacity: 0;
+    }
+    
+    /* Đảm bảo nút play luôn hiện rõ để bấm */
+    .play-btn {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
+}	
     </style>
 </head>
 <body>
@@ -368,6 +385,7 @@
 </body>
 
 </html>
+
 
 
 
